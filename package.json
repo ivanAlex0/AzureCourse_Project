@@ -1,0 +1,19 @@
+{
+  "name": "az_project",
+  "version": "1.0.0",
+  "description": "The project for Azure Course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivanAlex0/AzureCourse_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivanAlex0/AzureCourse_Project/issues"
+  },
+  "homepage": "https://github.com/ivanAlex0/AzureCourse_Project#readme"
+}
