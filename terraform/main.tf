@@ -37,6 +37,12 @@ resource "azurerm_storage_container" "Input" {
   container_access_type = "private"
 }
 
+resource "azurerm_storage_container" "Output" {
+  name                  = "output"
+  storage_account_name  = azurerm_storage_account.StorAccount1.name
+  container_access_type = "private"
+}
+
 
 resource "azurerm_cosmosdb_account" "db" {
   name                = "alexmongodbivan"
@@ -108,5 +114,33 @@ resource "azurerm_function_app" "example" {
 	app_settings = {
 		COSMOS_DB_NAME = resource.azurerm_cosmosdb_mongo_database.db-alex.name
 		COSMOS_DB_URL = resource.azurerm_cosmosdb_account.db.connection_strings[0]
+        SBUS_CONNECTION = azurerm_servicebus_namespace.sBus-Alex.default_primary_connection_string
+        SBUS_TOPIC = azurerm_servicebus_topic.sbus-topic.name
+        WEBSITE_RUN_FROM_PACKAGE = 1
 	}
+}
+
+resource "azurerm_servicebus_namespace" "sBus-Alex" {
+  name                = "alex-sbus-namespace-ivan"
+  location            = data.azurerm_resource_group.ResGroup.location
+  resource_group_name = data.azurerm_resource_group.ResGroup.name
+  sku                 = "Standard"
+
+  tags = {
+    source = "terraform"
+  }
+}
+
+resource "azurerm_servicebus_topic" "sbus-topic" {
+  name         = "alex-topic-ivan"
+  namespace_id = azurerm_servicebus_namespace.sBus-Alex.id
+
+  enable_partitioning = true
+}
+
+resource "azurerm_servicebus_subscription" "sbus-sbuscription" {
+  name               = "alex-subscription-ivan"
+  topic_id           = azurerm_servicebus_topic.sbus-topic.id
+  max_delivery_count = 1
+  requires_session = true
 }

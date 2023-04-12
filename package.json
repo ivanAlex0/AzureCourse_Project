@@ -4,6 +4,10 @@
   "description": "The project for Azure Course",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "func start --typescript",
+    "pre-deploy": "copy node_modules/*.* dist && copy host.json dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/ivanAlex0/AzureCourse_Project/issues"
   },
-  "homepage": "https://github.com/ivanAlex0/AzureCourse_Project#readme"
+  "homepage": "https://github.com/ivanAlex0/AzureCourse_Project#readme",
+  "dependencies": {
+    "@azure/functions": "^3.5.1",
+    "@azure/service-bus": "^7.9.0",
+    "@azure/storage-blob": "^12.13.0",
+    "fast-csv": "^4.3.6",
+    "mongoose": "^6.6.0"
+  }
 }

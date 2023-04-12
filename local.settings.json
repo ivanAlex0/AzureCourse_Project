@@ -1,0 +1,10 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=alexstorageivan;AccountKey=wsrrvJ0+WDU3O5OFBn46EbkyNrulrxShAm+ski5yams6SIib2evvkM+seaZt373lgRfS6rrERD8u+ASt2HpcPw==;EndpointSuffix=core.windows.net",
+    "SBUS_TOPIC": "alex-topic-ivan",
+    "SBUS_CONNECTION": "Endpoint=sb://alex-sbus-namespace-ivan.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=rKZVAPwbSc/v8ScB+MNi1rvRiph/Eyph1+ASbPeWuaQ=",
+    "COSMOS_DB_URL": "mongodb://alexmongodbivan:NbF3Ua1QUXpC1KrO1efNk3f9x9CduTobGGujo16epYvzxktaJ8pvJpmJrsOmgu9Jz5uEvIXkUVDxACDbEfjrag==@alexmongodbivan.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@alexmongodbivan@",
+    "COSMOS_DB_NAME": "alex-cosmos-mongo-db"
+  }
+}

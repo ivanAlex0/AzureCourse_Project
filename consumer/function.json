@@ -1,0 +1,15 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "topicName": "alex-topic-ivan",
+      "subscriptionName": "alex-subscription-ivan",
+      "name": "topicEvent",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "connection": "SBUS_CONNECTION",
+      "isSessionsEnabled": "true"
+    }
+  ],
+  "scriptFile": "../dist/consumer/index.js"
+}
